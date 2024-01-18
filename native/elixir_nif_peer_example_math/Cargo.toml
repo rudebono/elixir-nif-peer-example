@@ -1,0 +1,13 @@
+[package]
+name = "elixir_nif_peer_example_math"
+version = "0.1.0"
+authors = []
+edition = "2021"
+
+[lib]
+name = "elixir_nif_peer_example_math"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+rustler = "0.30.0"
