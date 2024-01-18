@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  elixir-nif-peer-example:
+    image: docker pull ghcr.io/rudebono/dev-containers/elixir-nif-peer-example:4f6f5a5a23961cd4659ccaa0fd7d2a2150bbbd5a
+    init: true
+    privileged: true
+    command: sleep infinity
+    volumes:
+      - ..:/home/vscode/workspace:cached
