@@ -33,7 +33,7 @@ jobs:
 
       - 
         name: Cargo
-        run: cargo --version
+        run: /usr/local/cargo/bin/cargo --version
       
       - 
         name: Compile
