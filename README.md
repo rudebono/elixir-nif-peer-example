@@ -1,23 +1,5 @@
 [![Check](https://github.com/rudebono/elixir-nif-peer-example/actions/workflows/check.yml/badge.svg)](https://github.com/rudebono/elixir-nif-peer-example/actions/workflows/check.yml)
 
-# ElixirNifPeerExample
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/rudebono/elixir-nif-peer-example)
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_nif_peer_example` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:elixir_nif_peer_example, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/elixir_nif_peer_example>.
-
+# Elixir NIF Peer Example
