@@ -30,14 +30,14 @@ jobs:
       - 
         name: Download Dependencies
         run: mix deps.get
-      
-      - 
-        name: Compile
-        run: mix compile --all-warnings --warnings-as-errors
 
       - 
         name: Cargo
         run: cargo --version
+      
+      - 
+        name: Compile
+        run: mix compile --all-warnings --warnings-as-errors
       
       - 
         name: Test
