@@ -9,29 +9,23 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/rudebono/dev-containers/elixir-nif-peer-example:4f6f5a5a23961cd4659ccaa0fd7d2a2150bbbd5a
-    env:
-      MIX_ENV: test
-
     steps:
       - 
         name: Checkout 
         uses: actions/checkout@v4
-      
-      # In dev-container, settings are made only for `vscode` user,
-      # so tools must be newly defined.
+        
       - 
-        name: Setup Rust
-        run: rustup default 1.75.0
+        name: Setup Erlang OTP/Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: 26.2.1
+          elixir-version: 1.16.0-otp-26
 
       - 
-        name: Setup Rebar
-        run: mix local.rebar --force
-      
-      - 
-        name: Setup Hex
-        run: mix local.hex --force
+        name: Setup Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: 1.75.0
       
       - 
         name: Download Dependencies
