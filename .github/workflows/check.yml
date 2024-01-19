@@ -15,11 +15,6 @@ jobs:
       MIX_ENV: test
 
     steps:
-      # https://github.blog/2022-04-12-git-security-vulnerability-announced/
-      - 
-        name: Ignore Git Security Vulnerability (CVE-2022-24765)
-        run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
-
       - 
         name: Checkout 
         uses: actions/checkout@v4
