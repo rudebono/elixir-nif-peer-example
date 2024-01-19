@@ -3,6 +3,7 @@ defmodule ElixirNifPeerExample.MathPeer do
 
   def add(a, b) do
     {:ok, peer, _peername} = :peer.start(%{connection: :standard_io})
+
     try do
       :ok = :peer.call(peer, :code, :add_paths, [:code.get_path()])
       :peer.call(peer, Math, :add, [a, b])
