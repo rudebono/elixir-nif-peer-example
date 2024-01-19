@@ -1,0 +1,45 @@
+name: Check
+
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/rudebono/dev-containers/elixir-nif-peer-example:4f6f5a5a23961cd4659ccaa0fd7d2a2150bbbd5a
+    env:
+      MIX_ENV: test
+
+    steps:
+      # https://github.blog/2022-04-12-git-security-vulnerability-announced/
+      - 
+        name: Ignore Git Security Vulnerability (CVE-2022-24765)
+        run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
+
+      - 
+        name: Checkout 
+        uses: actions/checkout@v4
+      
+      - 
+        name: Install Rebar
+        run: mix local.rebar --force
+      
+      - 
+        name: Install Hex
+        run: mix local.hex --force
+      
+      - 
+        name: Download Dependencies
+        run: mix deps.get
+      
+      - 
+        name: Compile
+        run: mix compile --all-warnings --warnings-as-errors
+      
+      - 
+        name: Test
+        run: mix test
