@@ -1,3 +1,5 @@
+[![Check](https://github.com/rudebono/elixir-nif-peer-example/actions/workflows/check.yml/badge.svg)](https://github.com/rudebono/elixir-nif-peer-example/actions/workflows/check.yml)
+
 # ElixirNifPeerExample
 
 **TODO: Add description**
