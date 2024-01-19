@@ -19,21 +19,23 @@ jobs:
         name: Checkout 
         uses: actions/checkout@v4
       
+      # In dev-container, settings are made only for `vscode` user,
+      # so tools must be newly defined.
       - 
-        name: Install Rebar
+        name: Setup Rust
+        run: rustup default 1.75.0
+
+      - 
+        name: Setup Rebar
         run: mix local.rebar --force
       
       - 
-        name: Install Hex
+        name: Setup Hex
         run: mix local.hex --force
       
       - 
         name: Download Dependencies
         run: mix deps.get
-
-      - 
-        name: Cargo
-        run: /usr/local/cargo/bin/cargo --version
       
       - 
         name: Compile
