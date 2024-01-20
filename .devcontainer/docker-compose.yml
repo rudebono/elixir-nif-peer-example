@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   elixir-nif-peer-example:
-    image: ghcr.io/rudebono/dev-containers/elixir-nif-peer-example:4f6f5a5a23961cd4659ccaa0fd7d2a2150bbbd5a
+    image: ghcr.io/rudebono/dev-containers/elixir-nif-peer-example:c2d8bfb53b79ff4d33fef8b2b47df873f2af8e85
     init: true
     privileged: true
     command: sleep infinity
