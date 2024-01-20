@@ -41,4 +41,13 @@ defmodule ElixirNifPeerExample.MathPeerPool do
       {:peer.call(peer, Math, :add, [a, b]), :ok}
     end)
   end
+
+  def unsafe_add(a, b) do
+    NimblePool.checkout!(__MODULE__, :checkout, fn {_pid, _ref}, peer ->
+      {:peer.call(peer, Math, :unsafe_add, [a, b]), :ok}
+    end)
+  catch
+    _kind, _reason ->
+      :timeout
+  end
 end
