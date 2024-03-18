@@ -21,12 +21,9 @@ fn unsafe_add(a: i64, b: i64) -> i64 {
         let _lock1 = mutex1_clone.lock().unwrap();
 
         // Deadlock occurs with a 50% probability.
-        let sleep_duration = if rand::thread_rng().gen_bool(0.5) {
-            0
-        } else {
-            1000
-        };
-        thread::sleep(Duration::from_millis(sleep_duration));
+        if rand::thread_rng().gen_bool(0.5) {
+            thread::sleep(Duration::from_millis(1000));
+        }
 
         let _lock2 = mutex2_clone.lock().unwrap();
     });
